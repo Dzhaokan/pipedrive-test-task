@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="mainContainer" class="container mt-3">
+        <form id="jobForm">
+            <!-- Form content remains the same -->
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="form-group border rounded p-3 h-100 shadow-sm">
+                        <h4>Client details</h4>
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" class="form-control mb-3" id="firstName" name="firstName" placeholder="First name">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control mb-3" id="lastName" name="lastName" placeholder="Last name">
+                            </div>
+                        </div>
+                        <input type="tel" class="form-control mb-3" id="phone" name="phone" placeholder="Phone">
+                        <input type="email" class="form-control mb-3" id="email" name="email" placeholder="Email (optional)">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group border rounded p-3 h-100 shadow-sm">
+                        <h4>Job details</h4>
+                        <div class="form-row">
+                            <div class="col">
+                                <select class="form-control mb-3" id="jobType" name="jobType">
+                                    <option selected>Job type</option>
+                                    <option value="type1">Type 1</option>
+                                    <option value="type2">Type 2</option>
+                                    <option value="type3">Type 3</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select class="form-control mb-3" id="jobSource" name="jobSource">
+                                    <option selected>Job source</option>
+                                    <option value="source1">Source 1</option>
+                                    <option value="source2">Source 2</option>
+                                    <option value="source3">Source 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <textarea class="form-control mb-3" id="jobDescription" name="jobDescription" placeholder="Job description (optional)" style="height: calc(100% - 120px);"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="form-group border rounded p-3 h-100 shadow-sm">
+                        <h4>Service location</h4>
+                        <input type="text" class="form-control mb-3" id="address" name="address" placeholder="Address">
+                        <input type="text" class="form-control mb-3" id="city" name="city" placeholder="City">
+                        <input type="text" class="form-control mb-3" id="state" name="state" placeholder="State">
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" class="form-control mb-3" id="zipCode" name="zipCode" placeholder="Zip code">
+                            </div>
+                            <div class="col">
+                                <select class="form-control mb-3" id="area" name="area">
+                                    <option selected>Area</option>
+                                    <option value="area1">Area 1</option>
+                                    <option value="area2">Area 2</option>
+                                    <option value="area3">Area 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group border rounded p-3 h-100 shadow-sm">
+                        <h4>Scheduled</h4>
+                        <input type="date" class="form-control mb-3" id="startDate" name="startDate" placeholder="Start date">
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="time" class="form-control mb-3" id="startTime" name="startTime" placeholder="Start time">
+                            </div>
+                            <div class="col">
+                                <input type="time" class="form-control mb-3" id="endTime" name="endTime" placeholder="End time">
+                            </div>
+                        </div>
+                        <select class="form-control mb-3" id="testSelect" name="testSelect">
+                            <option selected>Test select</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Added fields for API token and Base URL -->
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="form-group border rounded p-3 h-100 shadow-sm">
+                        <h4>API Configuration</h4>
+                        <input type="text" class="form-control mb-3" id="apiToken" name="apiToken" placeholder="API Token">
+                        <input type="text" class="form-control mb-3" id="baseUrl" name="baseUrl" placeholder="Base URL">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-primary submit-button shadow">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div id="successMessage" class="container mt-3 text-center form-group border rounded p-3 h-100 shadow-sm" style="display: none;">
+        <h4>Job is created</h4>
+        <p id="dealLink"></p>
+        <button id="backButton" class="btn btn-primary">Back</button>
+    </div>
+
+    <div id="loading" class="text-center" style="display: none;">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
